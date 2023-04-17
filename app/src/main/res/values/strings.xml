@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">SMS Trigger</string>
+    <string name="sms_filter">SMS match pattern</string>
+    <string name="sms_placeholder">Recent message will appear here</string>
+    <string name="search">Search</string>
+    <string name="enter_sender_name">Enter SMS pattern:</string>
+    <string name="enter_kiosk_url">URL for Kiosk:</string>
+</resources>
