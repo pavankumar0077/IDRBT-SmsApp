@@ -36,10 +36,16 @@ public class SmsEventListener extends BroadcastReceiver {
                     String matchText = preferences.getString("match text", altText);
                     if(message.contains(matchText)) {
                         //Hit URL to dispense Cash
-                        String urlStr = preferences.getString("kiosk url", "https://172.27.10.10:8443/dispense");
+                      String urlStr = preferences.getString("kiosk url", "http://192.168.138.156:8081/dispense/api/mobile");
+                        //String urlStr = preferences.getString("kiosk url", "http://localhost:8080/dispense/api/mobile");
                         Map<String, String> postData = new HashMap<>();
-                        postData.put("sender", sender);
-                        postData.put("message", message);
+
+                        postData.put("id", "2"); // sender
+                        postData.put("message", message.toString());
+                        postData.put("account", "SDDFK2342KL");
+                        postData.put("txn_status", "Failure");
+                        postData.put("amount", "1000");
+
                         AsyncURLCall task = new AsyncURLCall(postData, context);
                         task.execute(urlStr);
                         Toast.makeText(context, "SMS processed from " + sender + ": " + message, Toast.LENGTH_SHORT).show();

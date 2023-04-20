@@ -26,6 +26,7 @@ public class AsyncURLCall extends AsyncTask<String, Void, Void> {
     JSONObject postData;
     @SuppressLint("StaticFieldLeak")
     Context appContext;
+
     // This is a constructor that allows you to pass in the JSON body
     public AsyncURLCall(Map<String, String> postData, Context ctx) {
         if (postData != null) {
@@ -34,6 +35,7 @@ public class AsyncURLCall extends AsyncTask<String, Void, Void> {
         }
     }
 
+
     @Override
     protected Void doInBackground(String... params) {
         String responseString = null;
@@ -41,12 +43,9 @@ public class AsyncURLCall extends AsyncTask<String, Void, Void> {
             URL url = new URL(params[0]);
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
 
-
             urlConnection.setDoInput(true);
             urlConnection.setDoOutput(true);
-
             urlConnection.setRequestProperty("Content-Type", "application/json");
-
             urlConnection.setRequestMethod("POST");
 
 
@@ -63,9 +62,7 @@ public class AsyncURLCall extends AsyncTask<String, Void, Void> {
             int statusCode = urlConnection.getResponseCode();
 
             if (statusCode ==  200) {
-
                 InputStream inputStream = new BufferedInputStream(urlConnection.getInputStream());
-
                 String response = convertInputStreamToString(inputStream);
 
             } else {
