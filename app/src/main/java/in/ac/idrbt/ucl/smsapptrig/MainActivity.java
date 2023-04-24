@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
         kioskUrlEditText = findViewById(R.id.kiosk_url_edit_text);
 
-        kioskUrlEditText.setText(preferences.getString("kiosk url", "http://192.168.138.156:8081/dispense/api/mobile"));
+        kioskUrlEditText.setText(preferences.getString("kiosk url", "http://192.168.138.156:8085/dispense/api/mobile"));
         // kioskUrlEditText.setText(preferences.getString("kiosk url", "https://172.27.10.10:8443/dispense"));
         kioskUrlEditText.addTextChangedListener(new TextWatcher() {
             @Override
